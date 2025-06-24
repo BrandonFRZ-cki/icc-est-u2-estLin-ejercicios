@@ -15,7 +15,16 @@ public class LogicaClasificacion {
      *         Salida: "odnuM aloH"
      */
     public String invertirCadena(String texto) {
-        return "";
+        Stack<Character> pila = new Stack<Character>();
+        for (int i = 0; i < texto.length(); i++) {
+            pila.push(texto.charAt(i));
+        }
+        String textoInvertido = "";
+        while (!pila.isEmpty()) {
+            Character c = pila.pop();
+            textoInvertido += c;
+        }
+        return textoInvertido;
     }
 
     /**

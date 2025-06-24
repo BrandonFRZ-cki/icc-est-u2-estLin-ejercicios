@@ -95,6 +95,7 @@ public class LogicaClasificacion {
             ordenada.add(pilaAuxiliar.pop());
         }
         return ordenada;
+
     }
 
 
@@ -122,5 +123,5 @@ public class LogicaClasificacion {
         listaFinal.addAll(listaImpares);
 
         return listaFinal ;
-    }
+    }// Cambio Push Para ver nota
 }

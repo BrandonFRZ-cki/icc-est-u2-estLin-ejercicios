@@ -39,7 +39,37 @@ public class LogicaClasificacion {
      *         Salida: true
      */
     public boolean validarSimbolos(String expresion) {
-        return false;
+        Stack<Character> pila = new Stack<>();
+        for (int i = 0; i < expresion.length(); i++) {
+            if(expresion.charAt(i) == '(' || expresion.charAt(i) == '{' || expresion.charAt(i) == '[') {
+                pila.push(expresion.charAt(i));
+            } else if (expresion.charAt(i) == ')'){
+                if(pila.peek() == '(') {
+                    pila.pop();
+                }
+                else {
+                    return false;
+                }
+            }else if (expresion.charAt(i) == '}'){
+                if(pila.peek() == '{') {
+                    pila.pop();
+                }
+                else {
+                    return false;
+                }
+            }else if (expresion.charAt(i) == ']'){
+                if(pila.peek() == '[') {
+                    pila.pop();
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

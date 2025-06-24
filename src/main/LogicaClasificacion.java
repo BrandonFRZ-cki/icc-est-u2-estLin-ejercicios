@@ -82,9 +82,21 @@ public class LogicaClasificacion {
      *         Salida: [1, 2, 3, 4]
      */
     public List<Integer> ordenarPila(Stack<Integer> pila) {
-
-        return new ArrayList<>();
+        List<Integer> ordenada = new ArrayList<>();
+        Stack<Integer> pilaAuxiliar = new Stack<>();
+        while (!pila.isEmpty()) {
+            int temp = pila.pop();
+            while (!pilaAuxiliar.isEmpty() && pilaAuxiliar.peek() < temp) {
+                pila.push(pilaAuxiliar.pop());
+            }
+            pilaAuxiliar.push(temp);
+        }
+        while (!pilaAuxiliar.isEmpty()) {
+            ordenada.add(pilaAuxiliar.pop());
+        }
+        return ordenada;
     }
+
 
     /**
      * Clasifica una lista de enteros separando pares e impares.
